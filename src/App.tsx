@@ -70,6 +70,9 @@ export default function App() {
             <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub
             </a>
+            <a className="btn-secondary" href="Danil_Chernenko__CV.pdf" download="Danil_Chernenko__CV.pdf">
+              Download CV
+            </a>
           </div>
         </div>
 
