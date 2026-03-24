@@ -16,10 +16,28 @@ const skills = [
 
 const projects = [
   {
-    name: 'TinyCloud',
-    description: 'URL shortener with QR code generation — full-stack app with React frontend, Flask API, Kubernetes deployment, and CI/CD pipeline.',
-    tech: ['React', 'TypeScript', 'Python', 'Flask', 'Docker', 'Kubernetes', 'Helm', 'Terraform'],
-    url: 'https://github.com/danilchernenko/tinycloud',
+    name: 'tinycloud-frontend',
+    description: 'React frontend for TinyCloud — URL shortener with QR code generation.',
+    tech: ['React', 'TypeScript', 'Vite'],
+    url: 'https://github.com/cherya05/tinycloud-frontend',
+  },
+  {
+    name: 'tinycloud-backend',
+    description: 'Flask REST API for TinyCloud — URL shortening service with PostgreSQL and Elasticsearch.',
+    tech: ['Python', 'Flask', 'PostgreSQL', 'ELK'],
+    url: 'https://github.com/cherya05/tinycloud-backend',
+  },
+  {
+    name: 'tinycloud-infra',
+    description: 'Kubernetes infrastructure for TinyCloud — Helm charts, Terraform, and multi-environment setup.',
+    tech: ['Kubernetes', 'Helm', 'Terraform', 'AWS'],
+    url: 'https://github.com/cherya05/tinycloud-infra',
+  },
+  {
+    name: 'tinycloud-environment',
+    description: 'Local development environment for TinyCloud with Docker Compose and monitoring stack.',
+    tech: ['Docker', 'Prometheus', 'Grafana'],
+    url: 'https://github.com/cherya05/tinycloud-environment',
   },
 ]
 
@@ -47,11 +65,12 @@ export default function App() {
         <div className="hero">
           <div className="eyebrow">Portfolio</div>
           <h1>Danil<br /><strong>Chernenko</strong></h1>
+          <div className="hero-role">DevOps Engineer</div>
           <p className="hero-sub">
             Full-stack developer & DevOps engineer. Building reliable systems from code to cloud.
           </p>
           <div className="hero-actions">
-            <a className="btn-main" href="https://github.com/danilchernenko" target="_blank" rel="noreferrer">
+            <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub
             </a>
           </div>
@@ -94,8 +113,8 @@ export default function App() {
             <span className="sec-title">Contact</span>
           </div>
           <div className="contact-links">
-            <a className="contact-item" href="https://github.com/danilchernenko" target="_blank" rel="noreferrer">
-              GitHub — danilchernenko
+            <a className="contact-item" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
+              GitHub — cherya05
             </a>
           </div>
         </section>

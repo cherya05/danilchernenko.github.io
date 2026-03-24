@@ -92,6 +92,11 @@ h1 strong{
   background:linear-gradient(135deg,#fff 0%,var(--brand-hi) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
+.hero-role{
+  font-size:22px;font-weight:300;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--brand-hi);margin-bottom:20px;margin-top:10px;
+  opacity:0;animation:up .7s .3s ease forwards;
+}
 .hero-sub{
   font-size:17px;font-weight:300;letter-spacing:.01em;
   color:var(--text-dim);line-height:1.65;
@@ -128,16 +133,10 @@ h1 strong{
   font-size:13px;font-weight:500;letter-spacing:.04em;
   border:1px solid var(--border);
   background:rgba(6,6,6,.9);
-  color:var(--text-dim);
-  transition:color .2s,border-color .2s,background .2s;
+  color:var(--text);
+  transition:border-color .2s,background .2s;
 }
-.skill-chip:hover{color:var(--text);border-color:var(--brand-mid);background:rgba(65,74,115,.1)}
-.skill-chip.backend{border-color:rgba(74,222,128,.15);color:rgba(74,222,128,.7)}
-.skill-chip.backend:hover{border-color:rgba(74,222,128,.4);color:#4ade80;background:rgba(74,222,128,.06)}
-.skill-chip.frontend{border-color:rgba(130,148,210,.2);color:var(--brand-hi)}
-.skill-chip.frontend:hover{border-color:rgba(130,148,210,.5);background:rgba(130,148,210,.06)}
-.skill-chip.devops{border-color:rgba(251,191,36,.15);color:rgba(251,191,36,.7)}
-.skill-chip.devops:hover{border-color:rgba(251,191,36,.4);color:#fbbf24;background:rgba(251,191,36,.06)}
+.skill-chip:hover{border-color:var(--brand-mid);background:rgba(65,74,115,.1)}
 
 /* PROJECTS */
 .projects-list{display:flex;flex-direction:column;gap:12px}
