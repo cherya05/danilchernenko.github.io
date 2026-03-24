@@ -67,7 +67,7 @@ export default function App() {
           <h1>Danil<br /><strong>Chernenko</strong></h1>
           <div className="hero-role">DevOps Engineer</div>
           <p className="hero-sub">
-            Full-stack developer & DevOps engineer. Building reliable systems from code to cloud.
+            Deployed a full-stack URL shortener to Kubernetes on AWS — containerized with Docker, provisioned infrastructure with Terraform, configured Helm charts for multi-environment deploys, set up CI/CD via GitHub Actions, and built an observability stack with Prometheus, Grafana, and ELK.
           </p>
           <div className="hero-actions">
             <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
