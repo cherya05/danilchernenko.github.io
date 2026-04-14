@@ -258,6 +258,7 @@ export default function App() {
             DANIL CHERNENKO
           </a>
           <div className="nav-links">
+            <a href="#tinycloud">TinyCloud</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -356,6 +357,11 @@ export default function App() {
                     <span key={t} className="tech-tag">{t}</span>
                   ))}
                 </div>
+                {p.name === 'tinycloud-frontend' ? (
+                  <button className="project-cta" type="button" onClick={openTinyCloud}>
+                    View TinyCloud page
+                  </button>
+                ) : null}
               </article>
             ))}
           </div>
