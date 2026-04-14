@@ -1,3 +1,7 @@
+import { useEffect, useState } from 'react'
+
+type View = 'home' | 'tinycloud'
+
 const skills = [
   { name: 'Linux', category: 'devops' },
   { name: 'Python', category: 'backend' },
@@ -49,7 +53,197 @@ const projects = [
   },
 ]
 
+function readView(): View {
+  return window.location.hash === '#tinycloud' ? 'tinycloud' : 'home'
+}
+
+function TinyCloudPage({ onBack }: { onBack: () => void }) {
+  return (
+    <div className="detail-page">
+      <nav>
+        <button className="back-link" type="button" onClick={onBack}>
+          Back
+        </button>
+        <div className="nav-links">
+          <a href="https://github.com/cherya05/tinycloud-frontend" target="_blank" rel="noreferrer">Frontend</a>
+          <a href="https://github.com/cherya05/tinycloud-backend" target="_blank" rel="noreferrer">Backend</a>
+          <a href="https://github.com/cherya05/tinycloud-infra" target="_blank" rel="noreferrer">Infra</a>
+        </div>
+      </nav>
+
+      <section className="detail-hero">
+        <div className="detail-kicker">Project Spotlight</div>
+        <h1 className="detail-title">TinyCloud</h1>
+        <p className="detail-copy">
+          A full-stack URL shortener built as a real DevOps learning project: application delivery, CI/CD,
+          Kubernetes deployment, and observability in one system.
+        </p>
+      </section>
+
+      <section className="section project-gallery">
+        <div className="sec-head">
+          <span className="sec-title">Project View</span>
+        </div>
+        <div className="gallery-grid">
+          <article className="shot-card shot-primary">
+            <div className="shot-meta">
+              <span className="shot-label">Screen 01</span>
+              <span className="shot-caption">Landing and link creation flow</span>
+            </div>
+            <div className="tinycloud-shot">
+              <div className="shot-nav">
+                <div className="shot-brand">
+                  <span className="shot-brand-mark">cloud</span>
+                  tinycloud
+                </div>
+                <div className="shot-links">
+                  <span>Links</span>
+                  <span>Docs</span>
+                </div>
+                <div className="shot-status">Online</div>
+              </div>
+
+              <div className="shot-hero">
+                <div className="shot-eyebrow">Your personal link infrastructure</div>
+                <div className="shot-heading">
+                  Short links.
+                  <br />
+                  <strong>Big reach.</strong>
+                </div>
+                <p className="shot-subcopy">
+                  Shorten URLs, generate QR codes, and manage every link powered by your own TinyCloud API.
+                </p>
+              </div>
+
+              <div className="shot-form">
+                <div className="shot-tabs">
+                  <span className="active">Shorten a Link</span>
+                  <span>Generate QR Code</span>
+                </div>
+                <div className="shot-input-label">Long URL</div>
+                <div className="shot-input">https://paste-your-long-url-here.com/path</div>
+                <div className="shot-button">Shorten Link</div>
+              </div>
+
+              <div className="shot-links-table">
+                <div className="shot-table-head">
+                  <span>Your links</span>
+                  <span>2 links</span>
+                </div>
+                <div className="shot-row">
+                  <span className="shot-code">K26nTX6U</span>
+                  <span>https://www.uefa.com/uefachampionsleague/</span>
+                </div>
+                <div className="shot-row">
+                  <span className="shot-code">1tNfn9Qq</span>
+                  <span>https://www.nba.com/player/201935/james-harden</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="shot-card shot-secondary">
+            <div className="shot-meta">
+              <span className="shot-label">Screen 02</span>
+              <span className="shot-caption">Delivery and platform snapshot</span>
+            </div>
+            <div className="ops-shot">
+              <div className="ops-header">
+                <span className="ops-pill">CI/CD</span>
+                <span className="ops-pill">Kubernetes</span>
+                <span className="ops-pill">Monitoring</span>
+              </div>
+
+              <div className="ops-grid">
+                <div className="ops-panel">
+                  <div className="ops-title">Release flow</div>
+                  <div className="ops-line">
+                    <span className="ops-node on">Push main</span>
+                    <span className="ops-node on">Build image</span>
+                    <span className="ops-node on">Push chart</span>
+                    <span className="ops-node on">Deploy dev</span>
+                  </div>
+                </div>
+
+                <div className="ops-panel">
+                  <div className="ops-title">Environments</div>
+                  <div className="env-stack">
+                    <span>dev</span>
+                    <span>staging</span>
+                    <span>prod</span>
+                  </div>
+                </div>
+
+                <div className="ops-panel">
+                  <div className="ops-title">What was delivered</div>
+                  <ul className="ops-list">
+                    <li>Containerized frontend and backend</li>
+                    <li>Built CI/CD with GitHub Actions</li>
+                    <li>Deployed workloads to Kubernetes</li>
+                    <li>Added metrics and monitoring layer</li>
+                    <li>Provisioned infra with Terraform</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="section detail-notes">
+        <div className="sec-head">
+          <span className="sec-title">Highlights</span>
+        </div>
+        <div className="detail-note-grid">
+          <div className="detail-note">
+            <span className="detail-note-label">Goal</span>
+            <p>Build a project that shows both application work and platform ownership.</p>
+          </div>
+          <div className="detail-note">
+            <span className="detail-note-label">My role</span>
+            <p>Implemented delivery flow end to end: app, containers, CI/CD, infra, and observability.</p>
+          </div>
+          <div className="detail-note">
+            <span className="detail-note-label">Stack</span>
+            <p>React, Flask, PostgreSQL, Docker, GitHub Actions, Helm, Terraform, Kubernetes, Prometheus.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
 export default function App() {
+  const [view, setView] = useState<View>(() => readView())
+
+  useEffect(() => {
+    const onHashChange = () => setView(readView())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  function openTinyCloud() {
+    window.location.hash = 'tinycloud'
+  }
+
+  function goHome() {
+    window.location.hash = ''
+  }
+
+  if (view === 'tinycloud') {
+    return (
+      <>
+        <div className="scene">
+          <div className="glow g1" />
+          <div className="glow g2" />
+        </div>
+        <div className="page">
+          <TinyCloudPage onBack={goHome} />
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       <div className="scene">
@@ -130,8 +324,19 @@ export default function App() {
           </div>
           <div className="projects-list">
             {projects.map((p) => (
-              <a key={p.name} className="project-card" href={p.url} target="_blank" rel="noreferrer">
-                <div className="project-name">{p.name}</div>
+              <article key={p.name} className="project-card">
+                <div className="project-name-row">
+                  <div className="project-name">{p.name}</div>
+                  {p.name === 'tinycloud-frontend' ? (
+                    <button className="project-link" type="button" onClick={openTinyCloud}>
+                      Open project view
+                    </button>
+                  ) : (
+                    <a className="project-link" href={p.url} target="_blank" rel="noreferrer">
+                      Open repo
+                    </a>
+                  )}
+                </div>
                 <div className="project-grid">
                   <div className="project-row">
                     <span className="project-label">Task</span>
@@ -151,7 +356,7 @@ export default function App() {
                     <span key={t} className="tech-tag">{t}</span>
                   ))}
                 </div>
-              </a>
+              </article>
             ))}
           </div>
         </section>
