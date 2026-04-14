@@ -258,7 +258,7 @@ export default function App() {
             DANIL CHERNENKO
           </a>
           <div className="nav-links">
-            <a href="#tinycloud">TinyCloud</a>
+            <a href="#tinycloud">Showcase</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -274,9 +274,6 @@ export default function App() {
             currently looking for an internship or junior role.
           </p>
           <div className="hero-actions">
-            <button className="btn-secondary" type="button" onClick={openTinyCloud}>
-              Showcase
-            </button>
             <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub
             </a>
@@ -345,22 +342,15 @@ export default function App() {
               >
                 <div className="project-name-row">
                   <div className="project-name">{p.name}</div>
-                  {p.name === 'tinycloud-frontend' ? (
-                    <button
-                      className="project-link"
-                      type="button"
-                      onClick={(event) => {
-                        event.stopPropagation()
-                        openTinyCloud()
-                      }}
-                    >
-                      Showcase
-                    </button>
-                  ) : (
-                    <a className="project-link" href={p.url} target="_blank" rel="noreferrer">
-                      Open repo
-                    </a>
-                  )}
+                  <a
+                    className="project-link"
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={p.name === 'tinycloud-frontend' ? (event) => event.stopPropagation() : undefined}
+                  >
+                    Open repo
+                  </a>
                 </div>
                 <div className="project-grid">
                   <div className="project-row">
@@ -381,18 +371,6 @@ export default function App() {
                     <span key={t} className="tech-tag">{t}</span>
                   ))}
                 </div>
-                {p.name === 'tinycloud-frontend' ? (
-                  <button
-                    className="project-cta"
-                    type="button"
-                    onClick={(event) => {
-                      event.stopPropagation()
-                      openTinyCloud()
-                    }}
-                  >
-                    Showcase
-                  </button>
-                ) : null}
               </article>
             ))}
           </div>
