@@ -237,6 +237,11 @@ h1 strong{
   box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 48px rgba(0,0,0,.3);
 }
 .project-card:hover{border-color:var(--brand-mid);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 48px rgba(0,0,0,.3),0 0 40px rgba(65,74,115,.08) inset}
+.project-card-clickable{cursor:pointer}
+.project-card-clickable:focus-visible{
+  outline:1px solid var(--brand-hi);
+  outline-offset:3px;
+}
 .project-name{
   font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--text);margin-bottom:10px;
 }

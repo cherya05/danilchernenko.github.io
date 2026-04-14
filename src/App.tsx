@@ -274,6 +274,9 @@ export default function App() {
             currently looking for an internship or junior role.
           </p>
           <div className="hero-actions">
+            <button className="btn-secondary" type="button" onClick={openTinyCloud}>
+              Showcase
+            </button>
             <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub
             </a>
@@ -325,12 +328,33 @@ export default function App() {
           </div>
           <div className="projects-list">
             {projects.map((p) => (
-              <article key={p.name} className="project-card">
+              <article
+                key={p.name}
+                className={`project-card${p.name === 'tinycloud-frontend' ? ' project-card-clickable' : ''}`}
+                onClick={p.name === 'tinycloud-frontend' ? openTinyCloud : undefined}
+                role={p.name === 'tinycloud-frontend' ? 'button' : undefined}
+                tabIndex={p.name === 'tinycloud-frontend' ? 0 : undefined}
+                onKeyDown={p.name === 'tinycloud-frontend'
+                  ? (event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        openTinyCloud()
+                      }
+                    }
+                  : undefined}
+              >
                 <div className="project-name-row">
                   <div className="project-name">{p.name}</div>
                   {p.name === 'tinycloud-frontend' ? (
-                    <button className="project-link" type="button" onClick={openTinyCloud}>
-                      Open project view
+                    <button
+                      className="project-link"
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation()
+                        openTinyCloud()
+                      }}
+                    >
+                      Showcase
                     </button>
                   ) : (
                     <a className="project-link" href={p.url} target="_blank" rel="noreferrer">
@@ -358,8 +382,15 @@ export default function App() {
                   ))}
                 </div>
                 {p.name === 'tinycloud-frontend' ? (
-                  <button className="project-cta" type="button" onClick={openTinyCloud}>
-                    View TinyCloud page
+                  <button
+                    className="project-cta"
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      openTinyCloud()
+                    }}
+                  >
+                    Showcase
                   </button>
                 ) : null}
               </article>
