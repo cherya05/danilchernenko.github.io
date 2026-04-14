@@ -17,26 +17,34 @@ const skills = [
 const projects = [
   {
     name: 'tinycloud-frontend',
-    description: 'React frontend for TinyCloud — URL shortener with QR code generation.',
-    tech: ['React', 'TypeScript', 'Vite'],
+    task: 'Build a clean user-facing interface for TinyCloud URL management.',
+    contribution: 'Built the UI, connected it to the API, containerized the app, and prepared Kubernetes delivery.',
+    tech: ['React', 'TypeScript', 'Vite', 'Nginx', 'Docker', 'Helm'],
+    result: 'Shipped a frontend that runs locally, in containers, and in Kubernetes environments.',
     url: 'https://github.com/cherya05/tinycloud-frontend',
   },
   {
-    name: 'tinycloud-backend',
-    description: 'Flask REST API for TinyCloud — URL shortening service with PostgreSQL and Elasticsearch.',
-    tech: ['Python', 'Flask', 'PostgreSQL', 'ELK'],
+    name: 'tinycloud-project',
+    task: 'Create the backend service for URL shortening, redirects, and CRUD operations.',
+    contribution: 'Built the Flask API, containerized it, added CI/CD, database migrations, and metrics.',
+    tech: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'GitHub Actions', 'Prometheus'],
+    result: 'Delivered a deployable backend with automated image/chart publishing and observable runtime behavior.',
     url: 'https://github.com/cherya05/tinycloud-backend',
   },
   {
     name: 'tinycloud-infra',
-    description: 'Kubernetes infrastructure for TinyCloud — Helm charts, Terraform, and multi-environment setup.',
-    tech: ['Kubernetes', 'Helm', 'Terraform', 'AWS'],
+    task: 'Provision and operate the cloud environment for TinyCloud across multiple stages.',
+    contribution: 'Provisioned infra with Terraform, built Helmfile-based deploy flow, and wired cross-repo delivery.',
+    tech: ['Terraform', 'Kubernetes', 'Helmfile', 'AWS ECR', 'Civo', 'GitHub Actions'],
+    result: 'Enabled repeatable deployments to dev, staging, and prod from versioned application artifacts.',
     url: 'https://github.com/cherya05/tinycloud-infra',
   },
   {
     name: 'tinycloud-environment',
-    description: 'Local development environment for TinyCloud with Docker Compose and monitoring stack.',
-    tech: ['Docker', 'Prometheus', 'Grafana'],
+    task: 'Add the shared operational layer around the application runtime.',
+    contribution: 'Added monitoring resources, ServiceMonitors, and supporting environment manifests for the cluster.',
+    tech: ['Prometheus', 'Grafana', 'ServiceMonitor', 'Helm', 'Kubernetes'],
+    result: 'Improved observability and made environment-level add-ons easier to manage outside app repos.',
     url: 'https://github.com/cherya05/tinycloud-environment',
   },
 ]
@@ -66,6 +74,10 @@ export default function App() {
           <div className="eyebrow">Portfolio</div>
           <h1>Danil<br /><strong>Chernenko</strong></h1>
           <div className="hero-role">DevOps Engineer</div>
+          <p className="hero-sub">
+            Linux and cloud-focused engineer learning production infrastructure, containers, CI/CD, and Kubernetes,
+            currently looking for an internship or junior role.
+          </p>
           <div className="hero-actions">
             <a className="btn-main" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub
@@ -75,6 +87,28 @@ export default function App() {
             </a>
           </div>
         </div>
+
+        <section className="section about-section" id="about">
+          <div className="sec-head">
+            <span className="sec-title">About Me</span>
+          </div>
+          <div className="about-card">
+            <p className="about-copy">
+              Danil is a DevOps-focused engineer building hands-on projects around Linux, containers, CI/CD,
+              Kubernetes, and cloud infrastructure.
+            </p>
+            <p className="about-copy">
+              Right now the focus is learning by shipping real systems end to end and growing into an internship or junior role.
+            </p>
+            <div className="about-focus">
+              <span className="focus-tag">Linux</span>
+              <span className="focus-tag">Containers</span>
+              <span className="focus-tag">CI/CD</span>
+              <span className="focus-tag">Kubernetes</span>
+              <span className="focus-tag">Cloud</span>
+            </div>
+          </div>
+        </section>
 
         <section className="section" id="skills">
           <div className="sec-head">
@@ -97,7 +131,20 @@ export default function App() {
             {projects.map((p) => (
               <a key={p.name} className="project-card" href={p.url} target="_blank" rel="noreferrer">
                 <div className="project-name">{p.name}</div>
-                <p className="project-desc">{p.description}</p>
+                <div className="project-grid">
+                  <div className="project-row">
+                    <span className="project-label">Task</span>
+                    <p className="project-desc">{p.task}</p>
+                  </div>
+                  <div className="project-row">
+                    <span className="project-label">What I did</span>
+                    <p className="project-desc">{p.contribution}</p>
+                  </div>
+                  <div className="project-row">
+                    <span className="project-label">Result</span>
+                    <p className="project-desc">{p.result}</p>
+                  </div>
+                </div>
                 <div className="project-tech">
                   {p.tech.map((t) => (
                     <span key={t} className="tech-tag">{t}</span>

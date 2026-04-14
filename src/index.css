@@ -138,6 +138,41 @@ h1 strong{
 }
 .sec-title{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint)}
 
+/* ABOUT */
+.about-section{margin-top:34px}
+.about-card{
+  background:rgba(6,6,6,.88);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:24px 26px;
+  backdrop-filter:blur(30px);
+  box-shadow:0 0 0 1px rgba(0,0,0,.6),0 24px 48px rgba(0,0,0,.22);
+}
+.about-copy{
+  font-size:15px;
+  font-weight:300;
+  line-height:1.72;
+  color:var(--text-dim);
+  max-width:780px;
+}
+.about-copy + .about-copy{margin-top:8px}
+.about-focus{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+.focus-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:.06em;
+  color:var(--brand-hi);
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background:rgba(65,74,115,.08);
+}
+
 /* SKILLS */
 .skills-grid{display:flex;flex-wrap:wrap;gap:10px}
 .skill-chip{
@@ -165,8 +200,27 @@ h1 strong{
 .project-name{
   font-size:19px;font-weight:500;letter-spacing:-.01em;color:var(--text);margin-bottom:10px;
 }
+.project-grid{
+  display:grid;
+  gap:12px;
+  margin-bottom:18px;
+}
+.project-row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:14px;
+  align-items:start;
+}
+.project-label{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--text-faint);
+  padding-top:3px;
+}
 .project-desc{
-  font-size:14px;font-weight:300;color:var(--text-dim);line-height:1.6;margin-bottom:18px;
+  font-size:14px;font-weight:300;color:var(--text-dim);line-height:1.6;
 }
 .project-tech{display:flex;flex-wrap:wrap;gap:8px}
 .tech-tag{
@@ -198,4 +252,5 @@ footer span{font-size:12px;font-weight:300;letter-spacing:.06em;color:var(--text
   nav,.hero,.section,footer{padding-left:20px;padding-right:20px}
   h1{font-size:36px}
   .nav-links{display:none}
+  .project-row{grid-template-columns:1fr;gap:4px}
 }
