@@ -98,7 +98,8 @@ export default function App() {
               Kubernetes, and cloud infrastructure.
             </p>
             <p className="about-copy">
-              Right now the focus is learning by shipping real systems end to end and growing into an internship or junior role.
+              Right now the focus is learning by shipping real systems end to end and growing into an internship, junior role,
+              or an entry-level path in support engineering, cloud engineering, or SRE.
             </p>
             <div className="about-focus">
               <span className="focus-tag">Linux</span>
@@ -160,6 +161,12 @@ export default function App() {
             <span className="sec-title">Contact</span>
           </div>
           <div className="contact-links">
+            <a className="contact-item" href="mailto:cherdanil79@gmail.com">
+              Email — cherdanil79@gmail.com
+            </a>
+            <a className="contact-item" href="https://linkedin.com/in/danil-chernenko/" target="_blank" rel="noreferrer">
+              LinkedIn — danil-chernenko
+            </a>
             <a className="contact-item" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
               GitHub — cherya05
             </a>
