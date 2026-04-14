@@ -162,13 +162,16 @@ export default function App() {
           </div>
           <div className="contact-links">
             <a className="contact-item" href="mailto:cherdanil79@gmail.com">
-              Email — cherdanil79@gmail.com
+              <span className="contact-label">Email</span>
+              <span className="contact-value">cherdanil79@gmail.com</span>
             </a>
             <a className="contact-item" href="https://linkedin.com/in/danil-chernenko/" target="_blank" rel="noreferrer">
-              LinkedIn — danil-chernenko
+              <span className="contact-label">LinkedIn</span>
+              <span className="contact-value">danil-chernenko</span>
             </a>
             <a className="contact-item" href="https://github.com/cherya05" target="_blank" rel="noreferrer">
-              GitHub — cherya05
+              <span className="contact-label">GitHub</span>
+              <span className="contact-value">cherya05</span>
             </a>
           </div>
         </section>
